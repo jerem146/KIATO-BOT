@@ -2,7 +2,7 @@ let handler = async (m, { conn, command, text, participants }) => {
   const emoji = '✅'
   const emoji2 = '⚠️'
 
-  // ───── COMANDO: AÑADIR ─────
+  // ─── AÑADIR USUARIO ───
   if (['add', 'agregar', 'añadir'].includes(command)) {
     if (!text)
       return conn.reply(m.chat, `${emoji2} *Por favor, ingrese el número que desea agregar.*`, m)
@@ -30,7 +30,7 @@ let handler = async (m, { conn, command, text, participants }) => {
     }
   }
 
-  // ───── COMANDO: INVITAR ─────
+  // ─── INVITAR USUARIO ───
   if (['invitar', 'invite'].includes(command)) {
     let user = null
 
@@ -50,10 +50,17 @@ let handler = async (m, { conn, command, text, participants }) => {
     }
 
     try {
-      let linkCode = await conn.groupRevokeInvite(m.chat)
-      await new Promise(resolve => setTimeout(resolve, 1000)) // Espera 1 segundo para asegurar actualización
-      let inviteLink = 'https://chat.whatsapp.com/' + linkCode
+      m.reply('⏳ *Generando nuevo enlace de invitación...*')
 
+      // Restablecer el link
+      let linkCode = await conn.groupRevokeInvite(m.chat)
+
+      // Esperar para asegurar que el nuevo código esté activo
+      await new Promise(resolve => setTimeout(resolve, 4000)) // espera 4s
+      let inviteLink = 'https://chat.whatsapp.com/' + linkCode
+      await new Promise(resolve => setTimeout(resolve, 5000)) // espera 5s más
+
+      // Enviar la invitación
       await conn.sendMessage(user, {
         text: `📩 *Has sido invitado nuevamente al grupo por @${m.sender.split('@')[0]}:*\n${inviteLink}\n\n(｡•́‿•̀｡) ¡Te esperamos!`
       }, { mentions: [m.sender] })
