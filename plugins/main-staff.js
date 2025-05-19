@@ -1,7 +1,7 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let img = './src/catalogo.jpg'
 let staff = `ᥫ᭡ *EQUIPO DE AYUDANTES* ❀
-✰ *Dueño* ${creador}
+✰ *Dueño* ${51944171641}
 ✦ *Bot:* ${botname}
 ⚘ *Versión:* ${vs}
 ❖ *Libreria:* ${libreria} ${baileys}
