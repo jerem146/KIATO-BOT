@@ -2,57 +2,35 @@ import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
 export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return !0;
+  if (!m.messageStubType || !m.isGroup) return true
 
-  // Obtener imagen de perfil o usar una por defecto
-  let ppUrl
-  try {
-    ppUrl = await conn.profilePictureUrl(m.messageStubParameters[0], 'image')
-  } catch (e) {
-    ppUrl = 'https://files.catbox.moe/xr2m6u.jpg' // Imagen por defecto
-  }
-
-  let img
-  try {
-    const res = await fetch(ppUrl)
-    img = await res.buffer()
-  } catch (e) {
-    console.error('Error al obtener la imagen:', e)
-    img = await (await fetch('https://files.catbox.moe/xr2m6u.jpg')).buffer()
-  }
-
+  let who = m.messageStubParameters[0]
+  let taguser = `@${who.split('@')[0]}`
   let chat = global.db.data.chats[m.chat]
-  let txt = 'ゲ◜៹ New Member ៹◞ゲ'
-  let txt1 = 'ゲ◜៹ Bye Member ៹◞ゲ'
-  let groupSize = participants.length
+  let defaultImage = 'https://i.ibb.co/mVzcY6yV/file.jpg';
 
-  if (m.messageStubType == 27) {
-    groupSize++
-  } else if (m.messageStubType == 28 || m.messageStubType == 32) {
-    groupSize--
+  if (chat.welcome) {
+    let img;
+    try {
+      let pp = await conn.profilePictureUrl(who, 'image');
+      img = await (await fetch(pp)).buffer();
+    } catch {
+      img = await (await fetch(defaultImage)).buffer();
+    }
+
+  const welcomeMessage = global.db.data.chats[m.chat]?.welcomeMessage || 'Bienvenido/a :';
+
+    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
+    let bienvenida = `┏╼★${textbot}\n┋「 Bienvenido 」\n┗╼★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n ┋❖ ${welcomeMessage}\n ┋❀  ${groupMetadata.subject}\n ┗━━━━━━━━━━━━━━━┅ ⳹\n> ✐ Puedes usar *#profile* para ver tu perfil.`
+      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] }, { quoted: estilo })
+    } else if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE || m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
+
+const despMessage = global.db.data.chats[m.chat]?.despMessage || 'Se Fue😹';
+
+     let bye = `┏╼★${textbot}\n┋「 ADIOS 👋 」\n┗╼★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n ┋❖ ${despMessage}\n ┋❀ Jamás te quisimos aquí\n ┗━━━━━━━━━━━━━━━┅ ⳹\n> ${dev}`
+      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] }, { quoted: estilo })
+    }
   }
 
-  if (chat.welcome && m.messageStubType == 27) {
-    let bienvenida = `⭑⭒꒰⚜️ 𝑩𝒊𝒆𝒏𝒗𝒆𝒏𝒊𝒅𝒐 ⚜️꒱⭒⭑  
-╭┈┈⊰ 𝑨 ${groupMetadata.subject}
-├─➤ ✰ @${m.messageStubParameters[0].split`@`[0]}
-╰┈➤ ${global.welcom1}
-
-✦ 𝑨𝒉𝒐𝒓𝒂 𝒔𝒐𝒎𝒐𝒔: ${groupSize} 𝑴𝒊𝒆𝒎𝒃𝒓𝒐𝒔  
-⌬•(🙄)• 𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 𝒕𝒖 𝒆𝒔𝒕𝒂𝒅í𝒂  
-✎ Usa *#menu* para ver los comandos disponibles`
-    await conn.sendMini(m.chat, txt, dev, bienvenida, img, img, redes, fkontak)
-  }
-
-  if (chat.welcome && (m.messageStubType == 28 || m.messageStubType == 32)) {
-    let bye = `⭑⭒꒰☠️ 𝑨𝒅í𝒐𝒔 ⚰️꒱⭒⭑  
-╭┈┈⊰ 𝑫𝒆 ${groupMetadata.subject}
-├─➤ ✰ @${m.messageStubParameters[0].split`@`[0]}
-╰┈➤ ${global.welcom2}
-
-✦ 𝑸𝒖𝒆𝒅𝒂𝒎𝒐𝒔: ${groupSize} 𝑴𝒊𝒆𝒎𝒃𝒓𝒐𝒔  
-⌬•(🤪)• ¡𝑻𝒆 𝒆𝒔𝒑𝒆𝒓𝒂𝒎𝒐𝒔 𝒑𝒓𝒐𝒏𝒕𝒐!  
-✎ Usa *#menu* si vuelves`
-    await conn.sendMini(m.chat, txt1, dev, bye, img, img, redes, fkontak)
-  }
+  return true
 }
