@@ -51,6 +51,7 @@ let handler = async (m, { conn, command, text, participants }) => {
 
     try {
       let linkCode = await conn.groupRevokeInvite(m.chat)
+      await new Promise(resolve => setTimeout(resolve, 1000)) // Espera 1 segundo para asegurar actualización
       let inviteLink = 'https://chat.whatsapp.com/' + linkCode
 
       await conn.sendMessage(user, {
