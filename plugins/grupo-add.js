@@ -52,15 +52,17 @@ let handler = async (m, { conn, command, text, participants }) => {
     try {
       m.reply('⏳ *Generando nuevo enlace de invitación...*')
 
-      // Restablecer el link
-      let linkCode = await conn.groupRevokeInvite(m.chat)
+      // Revocar link anterior
+      await conn.groupRevokeInvite(m.chat)
 
-      // Esperar para asegurar que el nuevo código esté activo
-      await new Promise(resolve => setTimeout(resolve, 4000)) // espera 4s
+      // Esperar 6 segundos para que WhatsApp actualice el link
+      await new Promise(resolve => setTimeout(resolve, 6000))
+
+      // Obtener link actualizado
+      let linkCode = await conn.groupInviteCode(m.chat)
       let inviteLink = 'https://chat.whatsapp.com/' + linkCode
-      await new Promise(resolve => setTimeout(resolve, 5000)) // espera 5s más
 
-      // Enviar la invitación
+      // Enviar invitación
       await conn.sendMessage(user, {
         text: `📩 *Has sido invitado nuevamente al grupo por @${m.sender.split('@')[0]}:*\n${inviteLink}\n\n(｡•́‿•̀｡) ¡Te esperamos!`
       }, { mentions: [m.sender] })
