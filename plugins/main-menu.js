@@ -1,4 +1,4 @@
-let handler = async (m, { conn, args }) => {
+nolet handler = async (m, { conn, args }) => {
     let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
     let user = global.db.data.users[userId]
     let name = conn.getName(userId)
@@ -605,7 +605,7 @@ let txt = `
           mentionedJid: [m.sender, userId],
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid: channelRD.id,
+              newsletterJid: channelRD.,
               newsletterName: channelRD.name,
               serverMessageId: -1,
           },
