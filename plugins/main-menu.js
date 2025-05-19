@@ -15,7 +15,7 @@ let txt = `
 ┃ 👥 Usuarios: ${totalreg}
 ┃ 🛠️ Cmds    : ${totalCommands}
 ┃ 🛰️ Servidor: Multi Device
-┃ 🥷 Creador : The Jhon🥷
+┃ 🥷 Creador : The JEREMY🥷
 ╰─────────────────────╯
 ➤ 😁 ¿Quieres tu propio *Sub-Bot*?  
 ➤ Usa: *${prefix}serbot* ¡Conviértete en sub-bot😃!
