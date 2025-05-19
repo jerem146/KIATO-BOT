@@ -30,7 +30,7 @@ console.log(`Error : ${e}`)
 global.creador = 'Wa.me/573154062343'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/573154062343'
-global.namechannel = '=͟͟͞❀ Destiny - 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⏤͟͟͞͞★'
+global.namechannel = 'https://chat.whatsapp.com/JxV2ZeGQxmB5aeK46JiCWV'
 global.namechannel2 = '=͟͟͞❀ Destiny - 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ⏤͟͟͞͞★'
 global.namegrupo = 'ᰔᩚ Destiny • ᥆𝖿іᥴіᥲᥣ ❀'
 global.namecomu = 'ᰔᩚ Destiny • ᥴ᥆mᥙᥒі𝗍ᥡ ❀'
