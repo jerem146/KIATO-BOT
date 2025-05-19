@@ -66,7 +66,7 @@ global.waitt = '❍ Espera un momento, soy lenta...';
 global.waittt = '❍ Espera un momento, soy lenta...';
 global.waitttt = '❍ Espera un momento, soy lenta...';
 
-var canal = 'https://chat.whatsapp.com/JxV2ZeGQxmB5aeK46JiCWV'  
+var canal = 'https://whatsapp.com/channel/0029VbADBSTEawdmbuNz9p1d'  
 var comunidad = 'https://chat.whatsapp.com/Ekf7Ge36AthIUiCGIdRHR2'
 var git = 'https://github.com/https0J'
 var github = 'https://github.com/https0J/Destiny-Bot' 
