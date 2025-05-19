@@ -32,7 +32,7 @@ global.prems = []
 global.libreria = 'Baileys'
 global.baileys = 'V 6.7.16' 
 global.vs = '1.0.0'
-global.nameqr = 'KIATO-BOT'
+global.nameqr = '༺ӄɨǟȶօ-ɮօȶ༻'
 global.namebot = '𓂀KIATO-FISHER𓂀'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
@@ -40,13 +40,13 @@ global.yukiJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = '𓂀KIATO-FISHER𓂀'
-global.botname = 'KIATO-BOT'
-global.wm = 'KIATO-FISHER'
-global.author = 'Made By JEREMY'
-global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ DARK'
-global.textbot = 'KIATO-BOT • Powered By JEREMY'
-global.etiqueta = 'DARK'
+global.packname = '𓂀𝙺𝙸𝙰𝚃𝙾-𝙵𝙸𝚂𝙷𝙴𝚁𓂀'
+global.botname = '༺ӄɨǟȶօ-ɮօȶ༻'
+global.wm = '𝙺𝙸𝙰𝚃𝙾-𝙵𝙸𝚂𝙷𝙴𝚁'
+global.author = 'Made By •⊹٭𝙹𝙴𝚁𝙴𝙼𝚈٭⊹'
+global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ᗪ卂尺Ҝ'
+global.textbot = 'KIATO-BOT • Powered •⊹٭𝙹𝙴𝚁𝙴𝙼𝚈٭⊹'
+global.etiqueta = '⊹ᗪ卂尺Ҝ⊹'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
