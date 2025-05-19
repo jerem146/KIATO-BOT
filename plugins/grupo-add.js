@@ -2,7 +2,8 @@ let handler = async (m, { conn, command, text, participants }) => {
   const emoji = '✅'
   const emoji2 = '⚠️'
 
-  if (command === 'add' || command === 'agregar' || command === 'añadir') {
+  // ───── COMANDO: AÑADIR ─────
+  if (['add', 'agregar', 'añadir'].includes(command)) {
     if (!text)
       return conn.reply(m.chat, `${emoji2} *Por favor, ingrese el número que desea agregar.*`, m)
 
@@ -16,7 +17,6 @@ let handler = async (m, { conn, command, text, participants }) => {
     let jid = `${number}@s.whatsapp.net`
 
     let existe = participants.some(p => p.id === jid)
-
     if (existe) {
       return m.reply(`${emoji2} *El número ya está en el grupo.*`)
     }
@@ -30,17 +30,32 @@ let handler = async (m, { conn, command, text, participants }) => {
     }
   }
 
-  if (command === 'invitar' || command === 'invite') {
-    if (!m.quoted)
-      return conn.reply(m.chat, `${emoji2} *Responde al mensaje de la persona que deseas invitar nuevamente al grupo.*`, m)
+  // ───── COMANDO: INVITAR ─────
+  if (['invitar', 'invite'].includes(command)) {
+    let user = null
 
-    let user = m.quoted.sender
-    let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(m.chat)
+    if (m.quoted) {
+      user = m.quoted.sender
+    } else if (text) {
+      if (text.includes('+'))
+        return conn.reply(m.chat, `${emoji2} *Ingrese el número sin el símbolo "+" y sin espacios.*`, m)
+
+      if (isNaN(text))
+        return conn.reply(m.chat, `${emoji2} *Ingrese solo números sin letras ni símbolos.*`, m)
+
+      let number = text.replace(/\D/g, '')
+      user = `${number}@s.whatsapp.net`
+    } else {
+      return conn.reply(m.chat, `${emoji2} *Debe responder al mensaje del usuario o ingresar el número sin "+" ni espacios.*`, m)
+    }
 
     try {
+      let linkCode = await conn.groupRevokeInvite(m.chat)
+      let inviteLink = 'https://chat.whatsapp.com/' + linkCode
+
       await conn.sendMessage(user, {
-        text: `📩 *Has sido invitado nuevamente a unirte al grupo:*\n${link}`
-      }, { quoted: m })
+        text: `📩 *Has sido invitado nuevamente al grupo por @${m.sender.split('@')[0]}:*\n${inviteLink}\n\n(｡•́‿•̀｡) ¡Te esperamos!`
+      }, { mentions: [m.sender] })
 
       m.reply(`${emoji} *Invitación enviada al usuario:* @${user.split('@')[0]}`, null, {
         mentions: [user]
@@ -52,7 +67,7 @@ let handler = async (m, { conn, command, text, participants }) => {
   }
 }
 
-handler.help = ['add <número>', 'invitar (respondiendo)']
+handler.help = ['add <número>', 'invitar <número o responder mensaje>']
 handler.tags = ['group']
 handler.command = ['add', 'agregar', 'añadir', 'invitar', 'invite']
 handler.group = true
