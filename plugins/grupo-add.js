@@ -8,10 +8,8 @@ let handler = async (m, { conn, command, text, participants }) => {
   // ─── COMANDO ADD (AGREGAR) ───
   if (['add', 'agregar', 'añadir'].includes(command)) {
     if (m.quoted) {
-      // Si respondes a un mensaje, tomamos el sender del mensaje citado
       user = m.quoted.sender
     } else if (text) {
-      // Si escribes número
       if (text.includes('+'))
         return conn.reply(m.chat, `${emoji2} *Ingrese el número sin el símbolo "+" y sin espacios.*`, m)
 
@@ -36,7 +34,7 @@ let handler = async (m, { conn, command, text, participants }) => {
     }
   }
 
-  // ─── COMANDO INVITAR (ENVIAR LINK) ───
+  // ─── COMANDO INVITAR (ENVIAR LINK SIN RESTABLECER) ───
   if (['invitar', 'invite'].includes(command)) {
     if (m.quoted) {
       user = m.quoted.sender
@@ -54,28 +52,14 @@ let handler = async (m, { conn, command, text, participants }) => {
     }
 
     try {
-      m.reply('⏳ *Generando nuevo enlace de invitación...*')
+      m.reply('⏳ *Obteniendo enlace de invitación actual...*')
 
-      // Función robusta para obtener link válido con reintentos
-      async function getValidInviteLink(conn, chatId) {
-        let oldCode = await conn.groupInviteCode(chatId)
-        await conn.groupRevokeInvite(chatId)
-        await new Promise(resolve => setTimeout(resolve, 7000))
-
-        for (let i = 0; i < 3; i++) {
-          let newCode = await conn.groupInviteCode(chatId)
-          if (newCode !== oldCode) {
-            return 'https://chat.whatsapp.com/' + newCode
-          }
-          await new Promise(resolve => setTimeout(resolve, 3000))
-        }
-        return 'https://chat.whatsapp.com/' + oldCode
-      }
-
-      let inviteLink = await getValidInviteLink(conn, m.chat)
+      // Solo obtenemos el código actual sin revocar
+      let code = await conn.groupInviteCode(m.chat)
+      let inviteLink = 'https://chat.whatsapp.com/' + code
 
       await conn.sendMessage(user, {
-        text: `📩 *Has sido invitado nuevamente al grupo por @${m.sender.split('@')[0]}:*\n${inviteLink}\n\n(｡•́‿•̀｡) ¡Te esperamos!`
+        text: `📩 *Has sido invitado al grupo por @${m.sender.split('@')[0]}:*\n${inviteLink}\n\n(｡•́‿•̀｡) ¡Te esperamos!`
       }, { mentions: [m.sender] })
 
       m.reply(`${emoji} *Invitación enviada al usuario:* @${user.split('@')[0]}`, null, {
