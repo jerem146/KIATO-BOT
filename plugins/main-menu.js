@@ -605,7 +605,7 @@ let txt = `
           mentionedJid: [m.sender, userId],
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-              newsletterJid: channelRD.,
+              newsletterJid: channelRD.id,
               newsletterName: channelRD.name,
               serverMessageId: -1,
           },
