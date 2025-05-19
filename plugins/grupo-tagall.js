@@ -16,7 +16,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   const pesan = args.join` `;
   const oi = `*» Holi :* ${pesan}`;
-  let teks = `*!  HOLA MI AMOR  !*\n  *para${participants.length} vivos* 🗣️\n ${oi}\n╭  ┄ 𝅄 ۪꒰ \`⡞᪲=͟͟͞${botname} ≼᳞ׄ\` ꒱ ۟ 𝅄 ┄\n`;
+  let teks = `*!  HOLA MI AMOR  !*\n  *PARA ${participants.length} vivos* 🗣️\n ${oi}\n╭  ┄ 𝅄 ۪꒰ \`⡞᪲=͟͟͞${botname} ≼᳞ׄ\` ꒱ ۟ 𝅄 ┄\n`;
   for (const mem of participants) {
     teks += `┊${customEmoji} @${mem.id.split('@')[0]}\n`;
   }
