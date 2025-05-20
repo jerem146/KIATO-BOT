@@ -11,7 +11,7 @@ who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text;
   const dReason = 'Sin motivo';
   const msgtext = text || dReason 
   const sdms = msgtext.replace(/@\d+-?\d* /g, '');
-  const warntext = `${emoji} Etiquete a una persona o responda a un mensaje del grupo para advertir al usuario.`;
+  const warntext = `${emoji} Etiquete o responda para advertir.`;
   if (!who) {
 return m.reply(warntext, m.chat, { mentions: conn.parseMention(warntext) });
   }
@@ -25,18 +25,18 @@ return
 }}
 
   user.warn += 1;
-  await m.reply(`${user.warn == 1 ? `*@${who.split`@`[0]}*` : `*@${who.split`@`[0]}*`} Recibio una advertencia en este grupo!.\nMotivo: ${sdms}\n*Advertencias: ${user.warn}/3*`, null, { mentions: [who] },
+  await m.reply(`${user.warn == 1 ? `*@${who.split`@`[0]}*` : `*@${who.split`@`[0]}*`} Fue advertido!.\nMotivo: ${sdms}\n*Advertencias: ${user.warn}/3*`, null, { mentions: [who] },
   );
   if (user.warn >= 3) {
     user.warn = 0;
-    await m.reply(`${emoji} Te lo adverti varias veces!!!.\n*@${who.split`@`[0]}* Superaste las *3* advertencias, ahora seras eliminado/a.`, null, { mentions: [who] },
+    await m.reply(`${emoji} *@${who.split`@`[0]}* Superaste las *3* advertencias,seras eliminado/a.`, null, { mentions: [who] },
     );
     await conn.groupParticipantsUpdate(m.chat, [who], 'remove');
   }
   return !1;
 };
 
-handler.command = ['advertir', 'advertencia', 'warn', 'warning'];
+handler.command = ['advertir','advertencia', 'warn', 'warning'];
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
