@@ -55,7 +55,7 @@ global.etiqueta = '⊹ᗪ卂尺Ҝ⊹'
 global.moneda = 'soles'
 global.welcom1 = '❍ Edita Con El Comando setwelcome'
 global.welcom2 = '❍ Edita Con El Comando setbye'
-global.banner = 'https://i.postimg.cc/Vvj78gN9/file-000000004ca061f78a43e666dd000278-1.png'
+global.banner = 'https://files.catbox.moe/6imba6.png'
 global.avatar = 'https://files.catbox.moe/ulac2p.jpg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
