@@ -8,14 +8,14 @@ let handler = async (m, { conn, args }) => {
     let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
     
 let txt = `
-╭─〔 𝗠𝗘𝗡𝗨 𝗗𝗘 𝗖𝗢𝗠𝗔𝗡𝗗𝗢𝗦 〕─╮
+╭──〔 ${botname} 〕─╮
 ┃ 👤 Usuario : @${userId.split('@')[0]}
 ┃ 🚦 Estado  : ${conn.user.jid == global.conn.user.jid ? 'Bot Principal 🦾' : 'Sub-Bot 🤖'}
-┃ 🕰️ Uptime  : ${uptime}
+┃ 🕤 Uptime  : ${uptime}
 ┃ 👥 Usuarios: ${totalreg}
 ┃ 🛠️ Cmds    : ${totalCommands}
 ┃ 🛰️ Servidor: Multi Device
-┃ 🥷 Creador : The JEREMY🥷
+┃ 🥷 Creador : ${creador}🥷
 ╰─────────────────────╯
 *─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ──ׄ*
 *【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊  𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】*
