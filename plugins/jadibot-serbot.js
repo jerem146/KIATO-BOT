@@ -294,10 +294,8 @@ seconds = (seconds < 10) ? '0' + seconds : seconds
 return minutes + ' m y ' + seconds + ' s '
 }
 
-if (conn && conn.newsletterFollow) {
-
-if (conn.newsletterFollow) {
-  await conn.newsletterFollow(channelId).catch(() => {});
+if (typeof conn !== 'undefined' && conn && conn.newsletterFollow) {
+  // Código que utiliza conn.newsletterFollow
 } else {
-  console.log("La función newsletterFollow no está disponible");
-}}
+  console.log("La variable conn no está definida o no tiene la propiedad newsletterFollow");
+}
