@@ -213,6 +213,7 @@ let txt = `
 ┃ 🜲 *#waifusboard • #waifustop • #topwaifus*  
 ┃   Ver el top de personajes con mayor valor.
 ┗━━━━━━━━━━━━━━━━━⪩
+
 ┏━━⪩「 𝐒𝐭𝐢𝐜𝐤𝐞𝐫𝐬 」⪨:
 ┃ ✰ *#sticker • #s*  
 ┃   Crea stickers de (imagen/video).
@@ -356,11 +357,9 @@ let txt = `
 ┃ ⌘ #bot off
 ┃   Apaga el bot en un grupo.
 ┃ ⌘ #mute [mención / etiquetar]
-┃   El bot elimina los mensajes del 
-┃usuario.
+┃   El bot elimina los mensajes del usuario.
 ┃ ⌘ #unmute [mención / etiquetar]
-┃   El bot deja de eliminar los mensajes 
-┃del usuario.
+┃   El bot deja de eliminar los mensajes del usuario.
 ┃ ⌘ #encuesta • #poll
 ┃   Crea una encuesta.
 ┃ ⌘ #delete • #del
@@ -376,6 +375,7 @@ let txt = `
 ┃ ⌘ #listnum • #kicknum
 ┃   Elimina a usuarios con su prefijo +52**
 ┗━━━━━━━━━━━━━━━━━━━━⪩
+
 ┏━━⪩【 𝑨𝒏𝒊𝒎𝒆 】
 ┃ ⌘ #angry • #enojado + <mención>
 ┃   Estar enojado
@@ -446,6 +446,7 @@ let txt = `
 ┃ ⌘ #think + <mención>
 ┃   Pensar en algo
 ┗━━━━━━━━━━━━━━━━━━━━⪩
+
 ┏━━⪩【 𝑵𝑺𝑾𝑾 】
 ┃ ⌘ #anal + <mención>
 ┃   Hacer un anal
