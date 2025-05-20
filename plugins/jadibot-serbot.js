@@ -294,8 +294,7 @@ seconds = (seconds < 10) ? '0' + seconds : seconds
 return minutes + ' m y ' + seconds + ' s '
 }
 
-if (typeof conn !== 'undefined' && conn && conn.newsletterFollow) {
-  // Código que utiliza conn.newsletterFollow
-} else {
-  console.log("La variable conn no está definida o no tiene la propiedad newsletterFollow");
-}
+async function joinChannels(conn) {
+for (const channelId of Object.values(global.ch)) {
+await conn.newsletterFollow(channelId).catch(() => {})
+}}
