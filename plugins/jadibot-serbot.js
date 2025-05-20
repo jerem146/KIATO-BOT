@@ -294,7 +294,8 @@ seconds = (seconds < 10) ? '0' + seconds : seconds
 return minutes + ' m y ' + seconds + ' s '
 }
 
-async function joinChannels(conn) {
-for (const channelId of Object.values(global.ch)) {
-await conn.newsletterFollow(channelId).catch(() => {})
-}}
+if (conn.newsletterFollow) {
+  await conn.newsletterFollow(channelId).catch(() => {});
+} else {
+  console.log("La función newsletterFollow no está disponible");
+}
