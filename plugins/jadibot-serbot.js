@@ -294,8 +294,10 @@ seconds = (seconds < 10) ? '0' + seconds : seconds
 return minutes + ' m y ' + seconds + ' s '
 }
 
+if (conn && conn.newsletterFollow) {
+
 if (conn.newsletterFollow) {
   await conn.newsletterFollow(channelId).catch(() => {});
 } else {
   console.log("La función newsletterFollow no está disponible");
-}
+}}
