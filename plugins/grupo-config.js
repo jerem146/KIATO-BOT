@@ -6,11 +6,11 @@ let handler = async (m, { conn, command }) => {
   await conn.groupSettingUpdate(m.chat, isClose)
 
   if (isClose === 'not_announcement') {
-    m.reply(`${emoji} *Ya pueden escribir en este grupo.*`)
+    m.reply(`${emoji}
   }
 
   if (isClose === 'announcement') {
-    m.reply(`${emoji2} *Solo los administradores pueden escribir en este grupo.*`)
+    m.reply(`${emoji2}
   }
 }
 
