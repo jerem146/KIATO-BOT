@@ -626,7 +626,7 @@ let txt = `
 
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = ['menu', 'menú', 'cmd' 'help']
+handler.command = ['menu', 'menú', 'cmd', 'help']
 
 export default handler
 
