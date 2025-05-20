@@ -9,9 +9,9 @@ let handler = async (m, { conn, args }) => {
     const listaEnLinea =
       participantesUnicos
         .map((k) => `@${k.split("@")[0]}`)
-        .join("\n") || "*✧ No hay usuarios en línea en este momento :c.*";
+        .join("\n") || "*✧ No hay sapos en línea en este momento :c.*";
 
-    const mensaje = `*♡ Lista de usuarios en línea:*\n\n${listaEnLinea}\n\n> ${dev}`;
+    const mensaje = `*♡ Lista de usuarios en línea:*\n${listaEnLinea}\n> ${dev}`;
 
     await conn.sendMessage(m.chat, {
       text: mensaje,
@@ -21,7 +21,7 @@ let handler = async (m, { conn, args }) => {
     await m.react("✅");
   } catch (error) {
     console.error(error);
-    await m.reply(`${msm} Hubo un error al enviar la lista de usuarios.`);
+    await m.reply(`${msm} Error .`);
   }
 };
 
