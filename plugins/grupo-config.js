@@ -1,6 +1,6 @@
 let handler = async (m, { conn, command }) => {
-  const emoji = '✅'
-  const emoji2 = '🚫'
+  const emoji = ''
+  const emoji2 = ''
   const isClose = command === 'close' ? 'announcement' : 'not_announcement'
 
   await conn.groupSettingUpdate(m.chat, isClose)
