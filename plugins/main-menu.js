@@ -59,6 +59,80 @@ let txt = `
 ┃   Configurar un Prompt personalizado.
 ┗━━━━━━━━━━━━━━━━━⪩
 
+┏━━⪩「 𝐆𝐫𝐮𝐩𝐨𝐬 」⪨
+┃ ⌘ *#config • #on*
+┃   Ver opciones de configuración de 
+┃grupos.
+┃ ⌘ *#hidetag*
+┃  Envia un mensaje mencionando a todos los usuarios.
+┃ ⌘ *#gp • #infogrupo*
+┃   Ver la información del grupo.
+┃ ⌘ #linea • #listonline
+┃  Ver la lista de los usuarios en línea.
+┃ ⌘ *#setwelcome*
+┃   Establecer un mensaje de bienvenida
+┃personalizado.
+┃ ⌘ *#setbye*
+┃   Establecer un mensaje de despedida 
+┃personalizado.
+┃ ⌘ *#link*
+┃   El bot envía el link del grupo.
+┃ ⌘ *#admins • #admin*
+┃   Mencionar a los admins para solicitar 
+┃ayuda.
+┃ ⌘ *#restablecer • #revoke*
+┃   Restablecer el enlace del grupo.
+┃ ⌘ *#grupo • #group* [open / abrir]
+┃   Cambia ajustes del grupo para que todos 
+┃los usuarios envíen mensaje.
+┃ ⌘ *#kick* [número / mención]
+┃  Elimina un usuario de un grupo.
+┃ ⌘ #add • #añadir • #agregar • #invitar [número]
+┃   Invita a un usuario a tu grupo.
+┃ ⌘ *#promote* [mención / etiquetar]
+┃   El bot da administrador al usuario 
+┃mencionado.
+┃ ⌘ *#demote* [mención / etiquetar]
+┃   El bot quita administrador al usuario 
+┃mencionado.
+┃ ⌘ *#gpbanner • #groupimg*
+┃   Cambiar la imagen del grupo.
+┃ ⌘ *#gpname • #groupname*
+┃   Cambiar el nombre del grupo.
+┃ ⌘ *#gpdesc • #groupdesc*
+┃   Cambiar la descripción del grupo.
+┃ ⌘ *#advertir • #warn • #warning*
+┃   Darle una advertencia a un usuario.
+┃ ⌘ *#unwarn • #delwarn*
+┃   Quitar advertencias.
+┃ ⌘ *#advlist • #listadv*
+┃   Ver lista de usuarios advertidos.
+┃ ⌘ *#bot on*
+┃   Enciende el bot en un grupo.
+┃ ⌘ *#bot off*
+┃   Apaga el bot en un grupo.
+┃ ⌘ *#mute* [mención / etiquetar]
+┃   El bot elimina los mensajes del 
+┃usuario.
+┃ ⌘ *#unmute* [mención / etiquetar]
+┃   El bot deja de eliminar los mensajes 
+┃del usuario.
+┃ ⌘ *#encuesta • #poll*
+┃   Crea una encuesta.
+┃ ⌘ *#delete • #del*
+┃   Elimina mensaje de otros usuarios.
+┃ ⌘ *#fantasmas*
+┃   Ver lista de inactivos del grupo.
+┃ ⌘ *#kickfantasmas*
+┃   Elimina a los inactivos del grupo.
+┃ ⌘ *#invocar • #tagall • #todos*
+┃   Invoca a todos los del un grupo.
+┃ ⌘ *#setemoji • #setemo*
+┃.  Cambia el emoji de invitación.
+┃ ⌘ *#listnum • #kicknum*
+┃   Elimina a usuarios con su prefijo +52**
+┗━━━━━━━━━━━━━━━━━━━━⪩
+
 ┏━━⪩「 𝐁𝐮𝐬𝐜𝐚𝐝𝐨𝐫𝐞𝐬ᚐ 」⪨
 ┃ ❋ *#tiktoksearch • #tiktoks*  
 ┃   Buscador de videos de tiktok.
@@ -300,81 +374,6 @@ let txt = `
 ┃ ➤ ✦ Confiesa tus sentimientos a alguien de manera anónima.
 ┗━━━━━━━━━━━━━━━━━━━━⪩
 
-
-┏━━⪩「 𝐆𝐫𝐮𝐩𝐨𝐬 」⪨
-┃ ⌘ #config • #on
-┃   Ver opciones de configuración de 
-┃grupos.
-┃ ⌘ #hidetag
-┃  Envia un mensaje mencionando a todos los usuarios.
-┃ ⌘ #gp • #infogrupo
-┃   Ver la información del grupo.
-┃ ⌘ #linea • #listonline
-┃  Ver la lista de los usuarios en línea.
-┃ ⌘ #setwelcome
-┃   Establecer un mensaje de bienvenida
-┃personalizado.
-┃ ⌘ #setbye
-┃   Establecer un mensaje de despedida 
-┃personalizado.
-┃ ⌘ #link
-┃   El bot envía el link del grupo.
-┃ ⌘ #admins • #admin
-┃   Mencionar a los admins para solicitar 
-┃ayuda.
-┃ ⌘ #restablecer • #revoke
-┃   Restablecer el enlace del grupo.
-┃ ⌘ #grupo • #group [open / abrir]
-┃   Cambia ajustes del grupo para que todos 
-┃los usuarios envíen mensaje.
-┃ ⌘ #grupo • #group [close / cerrar]
-┃ ➤ ✦ Cambia ajustes del grupo para que solo 
-┃los administradores envíen mensaje.
-┃ ⌘ #kick [número / mención]
-┃ ➤ ✦ Elimina un usuario de un grupo.
-┃ ⌘ #add • #añadir • #agregar [número]
-┃   Invita a un usuario a tu grupo.
-┃ ⌘ #promote [mención / etiquetar]
-┃   El bot da administrador al usuario 
-┃mencionado.
-┃ ⌘ #demote [mención / etiquetar]
-┃   El bot quita administrador al usuario 
-┃mencionado.
-┃ ⌘ #gpbanner • #groupimg
-┃   Cambiar la imagen del grupo.
-┃ ⌘ #gpname • #groupname
-┃   Cambiar el nombre del grupo.
-┃ ⌘ #gpdesc • #groupdesc
-┃   Cambiar la descripción del grupo.
-┃ ⌘ #advertir • #warn • #warning
-┃   Darle una advertencia a un usuario.
-┃ ⌘ #unwarn • #delwarn
-┃   Quitar advertencias.
-┃ ⌘ #advlist • #listadv
-┃   Ver lista de usuarios advertidos.
-┃ ⌘ #bot on
-┃   Enciende el bot en un grupo.
-┃ ⌘ #bot off
-┃   Apaga el bot en un grupo.
-┃ ⌘ #mute [mención / etiquetar]
-┃   El bot elimina los mensajes del usuario.
-┃ ⌘ #unmute [mención / etiquetar]
-┃   El bot deja de eliminar los mensajes del usuario.
-┃ ⌘ #encuesta • #poll
-┃   Crea una encuesta.
-┃ ⌘ #delete • #del
-┃   Elimina mensaje de otros usuarios.
-┃ ⌘ #fantasmas
-┃   Ver lista de inactivos del grupo.
-┃ ⌘ #kickfantasmas
-┃   Elimina a los inactivos del grupo.
-┃ ⌘ #invocar • #tagall • #todos
-┃   Invoca a todos los del un grupo.
-┃ ⌘ #setemoji • #setemo
-┃.  Cambia el emoji de invitación.
-┃ ⌘ #listnum • #kicknum
-┃   Elimina a usuarios con su prefijo +52**
-┗━━━━━━━━━━━━━━━━━━━━⪩
 
 ┏━━⪩【 𝑨𝒏𝒊𝒎𝒆 】
 ┃ ⌘ #angry • #enojado + <mención>
